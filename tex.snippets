@@ -322,13 +322,13 @@ endsnippet
 
 priority 10
 context "math()"
-snippet EE "exists" iA
+snippet EE "exists" A
 \exists 
 endsnippet
 
 priority 10
 context "math()"
-snippet AA "forall" iA
+snippet AA "forall" A
 \forall 
 endsnippet
 
@@ -827,13 +827,13 @@ endsnippet
 # dot is more complicated
 priority 100
 context "math()"
-snippet "([clv]dot)" "cdot ldots vdots" riA
+snippet "(?<!\\)([clv]dot)" "cdot ldots vdots" riA
 \\`!p snip.rv=match.group(1)`
 endsnippet
 
 priority 10
 context "math()"
-snippet "([a-zA-Z])dot" "dot" riA
+snippet "(?<!\\)([a-zA-Z])dot" "dot" riA
 \dot{`!p snip.rv=match.group(1)`}
 endsnippet
 
