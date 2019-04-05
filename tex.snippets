@@ -446,13 +446,19 @@ endsnippet
 
 priority 10
 context "math()"
-snippet "(lim|limsup|liminf)" "limit/lim sup" wr
+snippet lim "limit" w
+\\lim_{${1:n} \to ${2:\infty}} $0
+endsnippet
+
+priority 100
+context "math()"
+snippet "(limsup|liminf)" "lim inf or lim sup" wr
 \\`!p snip.rv = match.group(1)`_{${1:n} \to ${2:\infty}} $0
 endsnippet
 
 priority 10
 context "math()"
-snippet "(sup|inf|max|min)" "sup or inf" wr
+snippet "(?<!lim)(sup|inf|max|min)" "sup or inf" wr
 \\`!p snip.rv = match.group(1)`_{${1:x} \in ${2:\R}} $0
 endsnippet
 
@@ -896,7 +902,7 @@ endsnippet
 priority 10
 context "math()"
 snippet mbf "math boldface" iA
-\mathbf{${1:v}}$0
+\mathbf{${1:${VISUAL:v}}}$0
 endsnippet
 
 priority 10
