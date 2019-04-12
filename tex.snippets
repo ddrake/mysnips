@@ -107,6 +107,25 @@ snippet template1 "template used in tmgain paper" b
 \end{document}
 endsnippet
 
+snippet tfig "Tikz figure with grid" b
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[>=stealth]
+	\draw[step=0.5, help lines, gray!50] (-7.25,-2.25) grid (7.25,2.25);
+	\foreach \x in {-7,...,7}
+		\draw (\x,-2pt) -- (\x,2pt);
+	\foreach \y in {-2,...,2}
+		\draw (-2pt,\y) -- (2pt,\y);
+	\draw [<->] (-7.25,0) -- (7.25,0);
+	\draw [<->] (0,-2.25) -- (0,2.25);
+	% finish drawing here 
+	$0
+	\end{tikzpicture}
+	\caption{${1:figure}}
+\end{figure}
+
+
+endsnippet
 ##################
 #  Environments  #
 ##################
