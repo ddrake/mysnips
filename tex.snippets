@@ -251,6 +251,11 @@ snippet cvec "column vector" iA
 \begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
 endsnippet
 
+priority 10
+context "math()"
+snippet ub "underbrace" w
+\underbrace{${1:${VISUAL:expr}}}_{$2} $0
+endsnippet
 ########################
 #  Document structure  #
 ########################
@@ -329,6 +334,7 @@ else:
 `$2
 endsnippet
 
+context "not math()"
 snippet dm "Display math mode" wA
 \[
 	${1:${VISUAL}}
@@ -666,14 +672,14 @@ endsnippet
 priority 10
 context "math()"
 snippet // "Fraction" iA
-\\frac{$1}{$2}$0
+\\frac{${1:${VISUAL}}}{$2}$0
 endsnippet
 
-priority 10
-context "math()"
-snippet / "Fraction" i
-\\frac{${VISUAL}}{$1}$0
-endsnippet
+#priority 10
+#context "math()"
+#snippet / "Fraction" i
+#\\frac{${VISUAL}}{$1}$0
+#endsnippet
 
 priority 10
 context "math()"
@@ -792,12 +798,12 @@ endsnippet
 
 priority 100
 context "math()"
-snippet "\'(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|r|s|t|u|x|y|z)" "vars" rwA
+snippet "\'(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|r|s|t|u|v|x|y|z)" "vars" rwA
 \\`!p snip.rv = \
-	dict(zip('a b c d e f g h i j k l m n o p r s t u x y z' \
+	dict(zip('a b c d e f g h i j k l m n o p q r s t u v x y z' \
 		.split(), ('alpha beta chi delta epsilon phi gamma theta ' + \
-		'iota psi kappa lambda mu nu omega pi ' + \
-		'rho sigma tau upsilon xi eta zeta') \
+		'iota psi kappa lambda mu nu omega pi varphi ' + \
+		'rho sigma tau upsilon varepsilon xi eta zeta') \
 		.split()))[match.group(1)]`
 endsnippet
 
